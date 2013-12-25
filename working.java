@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class twit4 {
-	public static final float BETA=0.1f;
+public class twit3 {
 	public static void main(String[] args) throws IOException {
 		twit3 ob=new twit3();
 		ob.go();
@@ -75,34 +74,34 @@ public class twit4 {
 			}
 		int t=Integer.parseInt(consoleReader.readLine());
 		while(t-->0){
-		float hJustin=0.1f,hGates=0.1f,hGoogle=0.1f,hObama=0.1f,hKing=0.1f;
-		float mJustin=0.1f,mGates=0.1f,mGoogle=0.1f,mObama=0.1f,mKing=0.1f;
-		float wJustin=0.1f,wGates=0.1f,wGoogle=0.1f,wObama=0.1f,wKing=0.1f;
-		float pJustin=0.1f,pGates=0.1f,pKing=0.1f,pGoogle=0.1f,pObama=0.1f;	
+		long hJustin=0,hGates=0,hGoogle=0,hObama=0,hKing=0;
+		long mJustin=0,mGates=0,mGoogle=0,mObama=0,mKing=0;
+		long wJustin=0,wGates=0,wGoogle=0,wObama=0,wKing=0;
+		long pJustin=0,pGates=0,pKing=0,pGoogle=0,pObama=0;	
 		String tweet=consoleReader.readLine();
 		String token,person=null;
-		float max=-0.1f;
+		long max=0;
 		StringTokenizer st2=new StringTokenizer(tweet);
 		while(st2.hasMoreTokens()){
 				token=st2.nextToken();
 			if(isHashTag(token)){
-				if(barackWords.containsKey(token))hObama*=((barackWords.get(token))+BETA)/((barackWords.size())+BETA);
-				if(justinWords.containsKey(token))hJustin*=((justinWords.get(token))+BETA)/((justinWords.size())+BETA);
-				if(kingWords.containsKey(token))hKing*=((kingWords.get(token))+BETA)/((kingWords.size())+BETA);
-				if(googleWords.containsKey(token))hGoogle*=((googleWords.get(token))+BETA)/((googleWords.size())+BETA);
-				if(gatesWords.containsKey(token))hGates*=((gatesWords.get(token))+BETA)/((gatesWords.size())+BETA);
+				if(barackWords.containsKey(token))hObama+=100;
+				if(justinWords.containsKey(token))hJustin+=100;
+				if(kingWords.containsKey(token))hKing+=100;
+				if(googleWords.containsKey(token))hGoogle+=100;
+				if(gatesWords.containsKey(token))hGates+=100;
 			}else if(isMention(token)){
-				if(barackWords.containsKey(token))mObama*=((barackWords.get(token))+BETA)/((barackWords.size())+BETA);
-				if(justinWords.containsKey(token))mJustin*=((justinWords.get(token))+BETA)/((justinWords.size())+BETA);
-				if(kingWords.containsKey(token))mKing*=((kingWords.get(token))+BETA)/((kingWords.size())+BETA);
-				if(googleWords.containsKey(token))mGoogle*=((googleWords.get(token))+BETA)/((googleWords.size())+BETA);
-				if(gatesWords.containsKey(token))mGates*=((gatesWords.get(token))+BETA)/((gatesWords.size())+BETA);
+				if(barackWords.containsKey(token))mObama+=100;
+				if(justinWords.containsKey(token))mJustin+=100;
+				if(kingWords.containsKey(token))mKing+=100;
+				if(googleWords.containsKey(token))mGoogle+=100;
+				if(gatesWords.containsKey(token))mGates+=100;
 			}else{
-				if(barackWords.containsKey(token))wObama*=((barackWords.get(token))+BETA)/((barackWords.size())+BETA);
-				if(justinWords.containsKey(token))wJustin*=((justinWords.get(token))+BETA)/((justinWords.size())+BETA);
-				if(kingWords.containsKey(token))wKing*=((kingWords.get(token))+BETA)/((kingWords.size())+BETA);
-				if(googleWords.containsKey(token))wGoogle*=((googleWords.get(token))+BETA)/((googleWords.size())+BETA);
-				if(gatesWords.containsKey(token))wGates*=((gatesWords.get(token))+BETA)/((gatesWords.size())+BETA);
+				if(barackWords.containsKey(token))wObama+=10;
+				if(justinWords.containsKey(token))wJustin+=10;
+				if(kingWords.containsKey(token))wKing+=10;
+				if(googleWords.containsKey(token))wGoogle+=10;
+				if(gatesWords.containsKey(token))wGates+=10;
 			}
 			}
 			pObama=hObama+mObama+wObama;
